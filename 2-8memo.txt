@@ -1,0 +1,17 @@
+for(int start = 0; start<spaceLength; start++) { // Is it OK?
+    boolean abort = false;
+    for(int i = 0; i<targetLength; i++) {
+        if(myTarget[i] != mySpace[start+i]) { abort = true; break; }
+    }
+    if(abort == false) { count++; }
+}
+return count;
+
+の部分は、与えられた文字列の長さまで見ることになっており、
+もしターゲットの最初の文字を見つけた場合はターゲットの長さだけ確認する必要がある。
+問題点としては、ターゲットの文字が2以上である場合かつ、ターゲットの文字の先頭が検索する文字列の最後にある場合、文字列の長さを超えて検索してしまう
+これにより、何もない部分を参照するため、null pointer exceptionが発生すると思われる。
+2-13
+informationEstimatorのエラー
+
+frequencyと同じ状況が発生する
